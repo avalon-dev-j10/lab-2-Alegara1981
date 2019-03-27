@@ -14,7 +14,10 @@ public class Circle implements Ellipse {
           
     }
    
-   
+   /*  TODO (Проверка№1 ЛР№2)
+        - Добавить коментарии к полям и методам класса
+        - Лишние комментарии удалить!
+    */
 
     @Override
     public float getLength() {

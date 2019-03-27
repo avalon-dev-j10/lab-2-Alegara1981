@@ -15,6 +15,12 @@ public class Rectangle implements Polygon {
     private final float xRectangle;
     private final float yRectangle;
     private final int angle;
+    
+    /*  TODO (Проверка№1 ЛР№2)
+        - Добавить коментарии к полям и методам класса
+        - Угол поворота фигуры лежит в диапазоне от 0 до 360, а не 100!
+        - Лишние комментарии удалить!
+    */
 
     public Rectangle() {
         a = (float) (100 * Math.random());

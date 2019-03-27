@@ -23,6 +23,12 @@ public class Main {
         
         
         Figura smax = null;
+        /*  TODO (Проверка№1 ЛР№2)
+            - Локальная переменная smax, состоит из 2 слов, неправильное написание,
+            ИСПРАВИТЬ!
+            - Можно сразу макс. площадь приравнять figures[0],  а цикл начать с 1
+            и проверку на null не надо выполнять!!! Исправить!
+        */
         for (int i = 0; i < figures.length; i++) {
              System.out.println(figures[i] + " S = " + figures[i].getArea());
              if (smax != null){
@@ -34,8 +40,12 @@ public class Main {
         }
         
         System.out.println("Фигура с большей S = " + smax.getArea());
+        
+        /*  TODO (Проверка№1 ЛР№2)
+            - Вывести какая именно фигура имеет наибольшую площадь - треугольник,
+            круг, ...
+        */
             
 
-        
     }
 }
