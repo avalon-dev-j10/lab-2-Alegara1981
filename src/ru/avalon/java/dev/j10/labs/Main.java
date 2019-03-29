@@ -22,31 +22,27 @@ public class Main {
         figures[9] = new Triangle();
         
         
-        Figura smax = null;
-        for (int i = 0; i < figures.length; i++) {
+        Figura sMax = figures[0];
+        /*  TODO (Проверка№1 ЛР№2)
+            - Локальная переменная smax, состоит из 2 слов, неправильное написание,
+            ИСПРАВИТЬ!
+            - Можно сразу макс. площадь приравнять figures[0],  а цикл начать с 1
+            и проверку на null не надо выполнять!!! Исправить!
+        */
+        for (int i = 1; i < figures.length; i++) {
              System.out.println(figures[i] + " S = " + figures[i].getArea());
-             if (smax != null){
-             if (figures[i].getArea() > smax.getArea()) {
-              smax = figures[i];        
-            } 
-        } else { 
-           smax = figures[i];  }
+             if (figures[i].getArea() > sMax.getArea()) {
+              sMax = figures[i];        
+            }
         }
         
-        System.out.println("Фигура с большей S = " + smax.getArea());
+        System.out.println(sMax + " фигура с большей S = " + sMax.getArea());
+        
+        /*  TODO (Проверка№1 ЛР№2)
+            - Вывести какая именно фигура имеет наибольшую площадь - треугольник,
+            круг, ...
+        */
             
 
-        /*
-         * TODO: Выполнить действия над массивом 'shapes'
-         *
-         * 1. Проинициализировать переменную 'shapes' массивом
-         *    содержащим 10 произвольных фигур. Массив должен
-         *    содержать экземпляры классов Circle, Rectangle
-         *    и Triangle.
-         *
-         * 2. Найти в массиве 'shapes' фигуру с максимальной
-         *    площадью. Для поиска фигуры необходимо создать
-         *    статический метод в текущем классе (Main).
-         */
     }
 }

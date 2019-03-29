@@ -1,64 +1,72 @@
 package ru.avalon.java.dev.j10.labs.shapes;
 
-/**
- * Представление о треугольнике.
- * <p>
- * Треуго́льник (в евклидовом пространстве) — геометрическая
- * фигура, образованная тремя отрезками, которые соединяют
- * три точки, не лежащие на одной прямой. Указанные три
- * точки называются вершинами треугольника, а отрезки —
- * сторонами треугольника. Часть плоскости, ограниченная
- * сторонами, называется внутренностью треугольника: нередко
- * треугольник рассматривается вместе со своей внутренностью
- * (например, для определения понятия площади).
- *
- * @see <a href="https://ru.wikipedia.org/wiki/%D0%A2%D1%80%D0%B5%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA">Треугольник</a>
- */
-public final class Triangle implements Polygon {
-    private final float a1;
-    private final float b1;
-    private final float c1;
-    private final float h;
-    private final float xTriangle;
-    private final float yTriangle;
-    private final int angle1;
 
-    public Triangle(){
-    a1 = (float) (100 * Math.random());
-    b1 = (float) (100 * Math.random());
-    c1 = (float) (100 * Math.random());
-    h = (float) (100 * Math.random());
-    xTriangle = (float) (100 * Math.random());
-    yTriangle = (float) (100 * Math.random());
-    angle1 = (int) (100 * Math.random());
+public final class Triangle implements Polygon { // обьявлен класс Треугольник наследующий интерфейс Многоугольник
+    private final float a; // Поля класса сторона а
+    private final float b;  // ь
+    private final float c;   // с
+    private final float p;  // полупериметр
+    private final float x; // координата х
+    private final float y; // координата у
+    private final int angle; // угол поворота
+    
+    /*  TODO (Проверка№1 ЛР№2)
+        - Добавить коментарии к полям и методам класса
+        - Переменные если в единичном экземпляре не надо объявлять как a1, b1, ..
+        Исправить, цифра не нада!
+        - Для определения характеристик треугольника достаточно его трех сторон,
+        высота является зависимой от этих показателей. И если ты рандомно задаешь
+        эти параметры, то на плоскости ты не сможешь вписть высоту в твой треугольник!
+        Удалить h - высота! Площадь вычислить по формуле Герона!
+        - Угол поворота фигуры лежит в диапазоне от 0 до 360, а не 100!
+    */
+
+    public Triangle(){ // Инициализация полей класса
+    a = (float) (60 + 40 * Math.random());
+    b = (float) (60 + 40 * Math.random());
+    c = (float) (60 + 40 * Math.random());
+    p = (a + b + c) / 2;    
+    x = (float) (100 * Math.random());
+    y = (float) (100 * Math.random());
+    angle = (int) (360 * Math.random());
     }
   
+    /*  TODO (Проверка№2 ЛР№2)
+        - Если ты рандомно создаешь три стороны
+        треугольника, ты должна соблюдать главное его правило - "Сумма любых двух
+        сторон, должна быть больше чем третья"
+        - Например, у тебя может создаться треугольник со сторонами 3, 10 и 40.
+        Такой треугольник невозможно построить и не выполняется правило
+        3 + 10 > 40 - ложь, поэтому возникает NaN
+        - Исправить метод создания треугольника!
+        - Подсказка можно использовать 60 + 40 * Math.random() - будет в пределах
+        от 60 до 100, и как раз правило треугольника выполниться всегда!
+    */  
     
-    
 
     @Override
-    public float getPerimeter() {
-        return a1 + b1 + c1; //To change body of generated methods, choose Tools | Templates.
+    public float getPerimeter() { // Метод получения периметра треугольника
+        return a + b + c; 
     }
 
     @Override
-    public float getArea() {
-        return (a1 * h) / 2; //To change body of generated methods, choose Tools | Templates.
+    public float getArea() {  // Метод получения площади треугольника
+         return (float) Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    }
+
+    @Override 
+    public int getRotation() { // Метод получения угла поворота треугольника
+        return angle; 
     }
 
     @Override
-    public int getRotation() {
-        return angle1; //To change body of generated methods, choose Tools | Templates.
+    public float getX() { // Метод получения координаты х 
+        return x; 
     }
 
     @Override
-    public float getX() {
-        return xTriangle; //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public float getY() {
-        return yTriangle; //To change body of generated methods, choose Tools | Templates.
+    public float getY() {  // Метод получения координаты у
+        return y; 
     }
 
     
@@ -69,7 +77,7 @@ public final class Triangle implements Polygon {
      */
 
     @Override
-    public String toString() {
+    public String toString() { // Метод преобразования числа в строку
         return "Triangle";
     }
 }
