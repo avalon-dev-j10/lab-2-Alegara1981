@@ -22,9 +22,9 @@ public final class Triangle implements Polygon { // обьявлен класс 
     */
 
     public Triangle(){ // Инициализация полей класса
-    a = (float) (100 * Math.random());
-    b = (float) (100 * Math.random());
-    c = (float) (100 * Math.random());
+    a = (float) (60 + 40 * Math.random());
+    b = (float) (60 + 40 * Math.random());
+    c = (float) (60 + 40 * Math.random());
     p = (a + b + c) / 2;    
     x = (float) (100 * Math.random());
     y = (float) (100 * Math.random());
