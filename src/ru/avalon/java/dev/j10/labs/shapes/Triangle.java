@@ -1,14 +1,14 @@
 package ru.avalon.java.dev.j10.labs.shapes;
 
 
-public final class Triangle implements Polygon {
-    private final float a1;
-    private final float b1;
-    private final float c1;
-    private final float h;
-    private final float xTriangle;
-    private final float yTriangle;
-    private final int angle1;
+public final class Triangle implements Polygon { // обьявлен класс Треугольник наследующий интерфейс Многоугольник
+    private final float a; // Поля класса сторона а
+    private final float b;  // ь
+    private final float c;   // с
+    private final float p;  // полупериметр
+    private final float xTriangle; // координата х
+    private final float yTriangle; // координата у
+    private final int angle; // угол поворота
     
     /*  TODO (Проверка№1 ЛР№2)
         - Добавить коментарии к полям и методам класса
@@ -21,41 +21,41 @@ public final class Triangle implements Polygon {
         - Угол поворота фигуры лежит в диапазоне от 0 до 360, а не 100!
     */
 
-    public Triangle(){
-    a1 = (float) (100 * Math.random());
-    b1 = (float) (100 * Math.random());
-    c1 = (float) (100 * Math.random());
-    h = (float) (100 * Math.random());
+    public Triangle(){ // Инициализация полей класса
+    a = (float) (100 * Math.random());
+    b = (float) (100 * Math.random());
+    c = (float) (100 * Math.random());
+    p = (a + b + c) / 2;    
     xTriangle = (float) (100 * Math.random());
     yTriangle = (float) (100 * Math.random());
-    angle1 = (int) (100 * Math.random());
+    angle = (int) (360 * Math.random());
     }
   
     
     
 
     @Override
-    public float getPerimeter() {
-        return a1 + b1 + c1; 
+    public float getPerimeter() { // Метод получения периметра треугольника
+        return a + b + c; 
     }
 
     @Override
-    public float getArea() {
-        return (a1 * h) / 2; 
+    public float getArea() {  // Метод получения площади треугольника
+         return (float) Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    }
+
+    @Override 
+    public int getRotation() { // Метод получения угла поворота треугольника
+        return angle; 
     }
 
     @Override
-    public int getRotation() {
-        return angle1; 
-    }
-
-    @Override
-    public float getX() {
+    public float getX() { // Метод получения координаты х 
         return xTriangle; 
     }
 
     @Override
-    public float getY() {
+    public float getY() {  // Метод получения координаты у
         return yTriangle; 
     }
 
@@ -67,7 +67,7 @@ public final class Triangle implements Polygon {
      */
 
     @Override
-    public String toString() {
+    public String toString() { // Метод преобразования числа в строку
         return "Triangle";
     }
 }
