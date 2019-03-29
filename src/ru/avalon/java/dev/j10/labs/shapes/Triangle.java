@@ -6,8 +6,8 @@ public final class Triangle implements Polygon { // обьявлен класс 
     private final float b;  // ь
     private final float c;   // с
     private final float p;  // полупериметр
-    private final float xTriangle; // координата х
-    private final float yTriangle; // координата у
+    private final float x; // координата х
+    private final float y; // координата у
     private final int angle; // угол поворота
     
     /*  TODO (Проверка№1 ЛР№2)
@@ -26,12 +26,22 @@ public final class Triangle implements Polygon { // обьявлен класс 
     b = (float) (100 * Math.random());
     c = (float) (100 * Math.random());
     p = (a + b + c) / 2;    
-    xTriangle = (float) (100 * Math.random());
-    yTriangle = (float) (100 * Math.random());
+    x = (float) (100 * Math.random());
+    y = (float) (100 * Math.random());
     angle = (int) (360 * Math.random());
     }
   
-    
+    /*  TODO (Проверка№2 ЛР№2)
+        - Если ты рандомно создаешь три стороны
+        треугольника, ты должна соблюдать главное его правило - "Сумма любых двух
+        сторон, должна быть больше чем третья"
+        - Например, у тебя может создаться треугольник со сторонами 3, 10 и 40.
+        Такой треугольник невозможно построить и не выполняется правило
+        3 + 10 > 40 - ложь, поэтому возникает NaN
+        - Исправить метод создания треугольника!
+        - Подсказка можно использовать 60 + 40 * Math.random() - будет в пределах
+        от 60 до 100, и как раз правило треугольника выполниться всегда!
+    */  
     
 
     @Override
@@ -51,12 +61,12 @@ public final class Triangle implements Polygon { // обьявлен класс 
 
     @Override
     public float getX() { // Метод получения координаты х 
-        return xTriangle; 
+        return x; 
     }
 
     @Override
     public float getY() {  // Метод получения координаты у
-        return yTriangle; 
+        return y; 
     }
 
     

@@ -12,8 +12,8 @@ public class Rectangle implements Polygon { // Объявлен класс Пр�
     
     private final float a; // Поля класса - сторона a
     private final float b;  // сторона b
-    private final float xRectangle; // координата x
-    private final float yRectangle; // координата y
+    private final float x; // координата x
+    private final float y; // координата y
     private final int angle; // угол поворота
     
     /*  TODO (Проверка№1 ЛР№2)
@@ -25,8 +25,8 @@ public class Rectangle implements Polygon { // Объявлен класс Пр�
     public Rectangle() { // Инициализация переменных
         a = (float) (100 * Math.random());
         b = (float) (100 * Math.random());
-        xRectangle = (float) (100 * Math.random());
-        yRectangle = (float) (100 * Math.random());
+        x = (float) (100 * Math.random());
+        y = (float) (100 * Math.random());
         angle = (int) (360 * Math.random());
     }
     
@@ -47,12 +47,12 @@ public class Rectangle implements Polygon { // Объявлен класс Пр�
 
     @Override
     public float getX() {
-         return xRectangle;// метод получения координаты x
+         return x;// метод получения координаты x
     }
 
     @Override
     public float getY() {
-        return yRectangle; // метод получения координаты y
+        return y; // метод получения координаты y
     }
     
     
